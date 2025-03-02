@@ -13,13 +13,10 @@ const numbers = [1,2,3,4,5,6,7,8,9,10];
 const forOf = [];
 
 for (let number of numbers) {
-  let j = number;
   if (number % 2 === 0) {
-    j = number ** 2
-   forOf.push(j)
+   forOf.push(number ** 2)
   } else {
-    j = number ** 3 
-    forOf.push(j)
+    forOf.push(number ** 3)
   }
 };
 
