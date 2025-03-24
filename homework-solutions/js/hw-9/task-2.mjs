@@ -14,23 +14,45 @@ const characters = [
 ];
 
 function addCharacter(character) {
-  // Ваш код
-}
+  if (typeof character.name !== 'string' || typeof character.age !== 'number') {
+    throw new Error("Invalid type");
+  }
+
+  characters.push(character); 
+};
 
 function getCharacter(name) {
-  // Ваш код
-}
+  const character  = characters.find((element) => element.name === name);
+  return character;
+};
 
 function getCharactersByAge(minAge) {
-  // Ваш код
-}
+  if (typeof(minAge) === 'number') {
+    return characters.filter((element) => element.age >= minAge);
+  } else { 
+    throw new Error("Invalid type");
+  }
+};
 
 function updateCharacter(name, newCharacter) {
-  // Ваш код
+  const character = getCharacter(name);
+  
+  if (!character) throw new Error("Invalid Character"); 
+
+  Object.assign(character, newCharacter); 
+
+  return character; 
 }
 
 function removeCharacter(name) {
-  // Ваш код
-}
+  const character = getCharacter(name);
+  if (!character) throw new Error("Invalid Character"); 
+  const index = characters.findIndex((element) => element.name === name);
+  characters[index] = characters.splice(index, 1);; 
+  return characters[index]; 
+};
+
+removeCharacter('Jack');
+console.log(characters);
 
 export { characters, addCharacter, updateCharacter, getCharacter, getCharactersByAge, removeCharacter };
