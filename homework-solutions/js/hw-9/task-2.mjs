@@ -48,7 +48,7 @@ function removeCharacter(name) {
   const character = getCharacter(name);
   if (!character) throw new Error("Invalid Character"); 
   const index = characters.findIndex((element) => element.name === name);
-  characters[index] = characters.splice(index, 1);; 
+  characters[index] = characters.splice(index, 1);
   return characters[index]; 
 };
 
